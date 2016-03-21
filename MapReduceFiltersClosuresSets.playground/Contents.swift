@@ -120,8 +120,14 @@ findEarth(planets)
 let oneString = planets.reduce("", combine: {$0 + " " + $1})
 print(oneString)
 
-var userDictionary = ["Tom" : "First Myspace Friend", "Bob" : "Smith"]
+var userDictionary = ["Tom" : "First Myspace Friend", "Sideshow" : "Bob"]
 let goodFriend = userDictionary.filter({$1 == "First Myspace Friend"})
 print(goodFriend)
+
+let badFriend = userDictionary.filter { (firstname, secondname) -> Bool in
+    return firstname == "Sideshow"
+}
+
+print(badFriend)
 
 
