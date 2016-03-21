@@ -106,9 +106,22 @@ let friendlyAndFeline = friendlyAnimals.intersect(felines)
 
 
 /*                                 Random Fun                                   */
+func findEarth(var planetArray: [String]) -> [String]{
+    if(planetArray.contains("Earth")){
+    }else{
+        planetArray.append("Earth")
+    }
+    return planetArray
+}
 
+var planets = ["Mars","Pluto"]
+findEarth(planets)
 
+let oneString = planets.reduce("", combine: {$0 + " " + $1})
+print(oneString)
 
-
+var userDictionary = ["Tom" : "First Myspace Friend", "Bob" : "Smith"]
+let goodFriend = userDictionary.filter({$1 == "First Myspace Friend"})
+print(goodFriend)
 
 
