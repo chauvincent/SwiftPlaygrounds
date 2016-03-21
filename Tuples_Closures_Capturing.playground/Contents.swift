@@ -24,6 +24,9 @@ class Person
 }
 let person1 = Person(fromName: "Vincent", andLast: "Chau", withDOB: 1991, gitHubID: "chauvincent")
 
+
+
+
 /*                                           Functions as Variables                 */
 
 func swiftIsCool(truth: Bool, message: String?) -> String
@@ -32,8 +35,40 @@ func swiftIsCool(truth: Bool, message: String?) -> String
 }
 
 var function: (Bool, String) -> String = swiftIsCool
-function(true, "damm right!")
+function(true, "you are damm right!")
 
+
+func adder(x: Int, y: Int) -> Int
+{
+    return x+y
+}
+
+let addFunction: (Int, Int) -> Int = adder
+
+func printSum(addFunc: (Int, Int) -> Int, _ num1: Int, _ num2: Int)
+{
+    let sum = addFunc(num1, num2)
+    print(sum)
+}
+
+printSum(addFunction, 500, 500)
+
+
+/*                                                 Ranges                           */
+
+let closedRange = 0...5   // include both 0 and 5
+let halfOpen = 0..<5    // includes 0 but not 5
+
+let personage = 24
+var definition:String
+
+switch(personage)
+{
+    case 0...200:
+        print("still young")
+    default:
+        print("you are still young at heart")
+}
 
 /*                                                 Tuples                           */
 
