@@ -1,6 +1,6 @@
 import UIKit
 
-/*                              More Closures                           */
+/*                              More Closures                                   */
 
 // Calculate a^2 + b^2 = c^2 Pythagorean Theorem for length of C
 func pytagorean(a: Float, b: Float, fn:(Float->Float)) -> Float{
@@ -21,7 +21,7 @@ let avgAndSquare = avg(2.0, b: 1.0, fn: {c in c * c})
 print(avgAndSquare)
 
 
-/*                                  Map                                 */
+/*                                  Map                                         */
 
 let lotsOfNumbers = [29,345,234,25,436,32,46,26,326,34,6324,5324,534,55,2345,6,2]
 
@@ -45,7 +45,7 @@ let distanceFrom = lotsOfNumbers.map { (number) -> Int in
 }
 
 
-/*                                 Reduce                               */
+/*                                 Reduce                                       */
 
 let someAlphabet = ["A","B","C","D","E","F","G","H","I","J","K","L"]
 
@@ -81,7 +81,7 @@ let simpleSum = randomNums.reduce(0, combine: {$0 + $1})
 print(simpleSum)
 
 
-/*                                 Filter                               */
+/*                                          Filter                               */
 
 // Filter less expensive items from dinner
 let lessExpensiveItems = totalPurchases.filter({$1 < 20.00})
@@ -92,7 +92,7 @@ let finalExamGrades = [60,40,30,70,50,76,80,90,99,20,10,0,0,35,67,75]
 let passingScores = finalExamGrades.filter({$0 > 50})
 print(passingScores)
 
-/*                       Playing With Sets                               */
+/*                              Playing With Sets                               */
 
 let friendlyAnimals:Set = ["Dogs", "Cats", "Rabbits", "Sheeps","Frogs"]
 let notFriendlyAnimals:Set = ["Tigers","Leopards","Wolves","Dinosaurs"]
@@ -105,6 +105,7 @@ let animalsToAvoid = allAnimals.subtract(friendlyAnimals).subtract(felines)
 let friendlyAndFeline = friendlyAnimals.intersect(felines)
 
 
+/*                                 Random Fun                                   */
 
 
 
