@@ -92,5 +92,22 @@ let finalExamGrades = [60,40,30,70,50,76,80,90,99,20,10,0,0,35,67,75]
 let passingScores = finalExamGrades.filter({$0 > 50})
 print(passingScores)
 
+/*                       Playing With Sets                               */
+
+let friendlyAnimals:Set = ["Dogs", "Cats", "Rabbits", "Sheeps","Frogs"]
+let notFriendlyAnimals:Set = ["Tigers","Leopards","Wolves","Dinosaurs"]
+let felines:Set = ["Cats","Tigers","Leaopards"]
+
+// hmm... this reminds me of prolog...
+let allAnimals = friendlyAnimals.union(notFriendlyAnimals).union(felines)
+let animalsToAvoid = allAnimals.subtract(friendlyAnimals).subtract(felines)
+
+let friendlyAndFeline = friendlyAnimals.intersect(felines)
+
+
+
+
+
+
 
 
