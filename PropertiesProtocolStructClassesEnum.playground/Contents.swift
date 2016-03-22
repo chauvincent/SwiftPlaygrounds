@@ -17,12 +17,19 @@ class Felines {
     var hasFur:Bool
     var hasATail:Bool
     var nickname:String
-    init(hasFur: Bool, hasATail: Bool, nickname: String){
+    init(hasFur: Bool, hasATail: Bool,  nickname: String){
         self.hasFur = hasFur
         self.hasATail = hasATail
         self.nickname = nickname
     }
 }
+
+var tiger = Felines(hasFur: true, hasATail: true, nickname: "Tony")
+var tigerPtr = tiger
+var newTiger = Felines(hasFur: true, hasATail: true, nickname: "Tony")
+tiger === tigerPtr
+tiger === newTiger  // === see if point to same object
+
 
 // Convenience Init
 class ScoreBoard{
@@ -52,10 +59,10 @@ class SubScoreBoard: ScoreBoard {
 
 
 // Internal Classes
-class InternalFelines {
+internal class InternalFelines {
     var isExinct:Bool
     var hasFangs:Bool
-    var coolNickname:String?
+    internal var coolNickname:String?
     init(){
         self.isExinct = true
         self.hasFangs = true
@@ -93,12 +100,6 @@ class DraculaRobot: Robot {
 var theCount = DraculaRobot()
 theCount.attack()
 
-var tiger = Felines(hasFur: true, hasATail: true, nickname: "Tony")
-var tigerPtr = tiger
-var newTiger = Felines(hasFur: true, hasATail: true, nickname: "Tony")
-tiger === tigerPtr
-tiger === newTiger  // === see if point to same object
-
 
 /*                                ARC IN SWIFT                                   */
 
@@ -129,13 +130,65 @@ ref2 = nil
 ref3 = nil // Deallocates after all strong ref is gone
 
 
+/*                                ENUM IN SWIFT                                   */
+
+enum Month:Int{
+    case January
+    case February
+}
+var thisMonth = Month(rawValue: 0)
+thisMonth = .February
 
 
+enum HTTP{
+    case GET
+    case POST(String)
+}
+HTTP.POST("Hello")
 
+/*                               Singletons in Swift                             */
 
+class DataManager{
+    static let shared = DataManager()
+    var dataBaseRef:String
+    private init(){
+        self.dataBaseRef = "asdfsdaf"
+    }
+}
 
+/*                               Property Observers and Lazy Var                 */
+class Post {
+    var postID:String{
+        didSet{
+            print("finished setting")
+        }
+        willSet{
+            print("about to set")
+        }
+    }
+    // [unowned self] to avoid strong ref cycle, without it the closure owns self -> mem leak
+    lazy var message: String = {
+        [unowned self] in
+        return "Lazy message for \(self.message)"
+    }()
+    
+    lazy var title = Post.initTitle()
+    
+    init(){
+        self.postID = "New Post"
+    }
+    class func initTitle() -> String{
+        return "Default Title"
+    }
+    
+    private func updatePostID(postID: String){
+        self.postID = postID
+    }
+}
 
-
+let post1 = Post()
+post1.updatePostID("324234423f")
+post1.updatePostID("333333")
 
 
 
