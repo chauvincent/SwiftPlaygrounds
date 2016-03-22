@@ -177,6 +177,7 @@ class Post {
     init(){
         self.postID = "New Post"
     }
+    // adding "class" allows subclass to ovveride
     class func initTitle() -> String{
         return "Default Title"
     }
@@ -192,4 +193,82 @@ post1.updatePostID("333333")
 
 
 /*                               Mutating Methods                               */
+
+struct Mood {
+    var currentMood = "Sleepy", todaysMood = "Never felt so alive!"
+    mutating func updateCurrentMood(mood: String){
+        currentMood = mood
+    }
+}
+var tomorrow = Mood()
+tomorrow.updateCurrentMood("Feel satisfied")
+print(tomorrow.currentMood)
+
+// Assign self to mutation function create new struct to target location, result same as Mood
+struct SleepSchedule {
+    var amountOfHours = 5.0, desiredAmount = 8.0
+    mutating func updateSleepSchedule(amount: Double, desired: Double){
+        self = SleepSchedule(amountOfHours: amount, desiredAmount: desired)
+    }
+}
+var todaySleep = SleepSchedule()
+todaySleep.updateSleepSchedule(8.0, desired: 8.0)
+
+
+/*                               Type Methods                                   */
+
+// Can keep track of highest score amongs users of a game using Type Methods
+struct ScoreTracker {
+    static var highestScore = 100
+    
+    static func scoredHigher(score: Int){
+        if score > highestScore { highestScore = score }
+    }
+    static func didScoredLower(score: Int) -> Bool {
+        return score <= highestScore
+    }
+    
+    var currentScore = 1
+    
+    mutating func keepTryingToWin(score: Int) -> Bool {
+        if ScoreTracker.didScoredLower(score){
+            currentScore = score
+            return true
+        }else{
+            ScoreTracker.scoredHigher(score)
+            return false // got higher
+        }
+    }
+}
+
+class GamePlayer {
+    var tracker = ScoreTracker()
+    let username:String
+    var wonTheGame:Bool {
+        didSet{
+            print("\(username) has WON")
+        }
+    }
+
+    func finishedRound(score: Int){
+        if(tracker.keepTryingToWin(score + 1)){
+            self.wonTheGame = true
+        }
+    }
+    init(username: String){
+        self.username = username
+        self.wonTheGame = false
+    }
+}
+
+var player1 = GamePlayer(username: "Vince")
+player1.finishedRound(10)
+print("Highest Score is: \(ScoreTracker.highestScore)")
+
+player1.finishedRound(100)
+print("Highest Score is: \(ScoreTracker.highestScore)")
+
+
+
+
 
