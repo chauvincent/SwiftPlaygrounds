@@ -1,10 +1,6 @@
 # Swift Playgrounds
 My Exercises to Explore Deeper into Swift
 
-Exercises for:
+So far I have explored:
 
-Closures
-Tuples
-Map/Reduce/Filter
-Sets
-Function Passing as Argument
+Closures, Tuples, Map/Reduce/Filter, Sets, Function Passing as Argument, Property Observers, Classes,Struct,Enums, Singletons, Lazy Variables, Mutating methods,Type Methods, and much more...
