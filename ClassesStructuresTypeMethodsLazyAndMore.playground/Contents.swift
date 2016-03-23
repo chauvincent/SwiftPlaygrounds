@@ -265,8 +265,51 @@ var player1 = GamePlayer(username: "Vince")
 player1.finishedRound(10)
 print("Highest Score is: \(ScoreTracker.highestScore)")
 
-player1.finishedRound(100)
+player1.finishedRound(1000)
 print("Highest Score is: \(ScoreTracker.highestScore)")
+
+let keepTrying = ScoreTracker.didScoredLower(500)  // check to see if score update
+
+
+/*                               Protocols                                   */
+// list super classes first
+
+protocol SportsCar {
+    var fullName: String { get }
+}
+struct Toyota: SportsCar {
+    var fullName: String
+}
+
+class Mercedes: SportsCar {
+    var horsePower: Int
+    var name: String?
+    var isAMG: Bool
+    init(horsePower: Int = 200, name: String?, isAMG: Bool){
+        self.horsePower = horsePower
+        self.name = name
+        self.isAMG = isAMG
+    }
+    var fullName:String{
+        return (name != nil ? name! + " " : "") + (isAMG ? "AMG" : "")
+    }
+}
+
+var c55 = Mercedes(horsePower: 400, name: "C55", isAMG: true)
+print(c55.fullName)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
