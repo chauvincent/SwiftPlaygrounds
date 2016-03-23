@@ -280,6 +280,7 @@ protocol SportsCar {
 struct Toyota: SportsCar {
     var fullName: String
 }
+var supra = Toyota(fullName: "Supra")
 
 class Mercedes: SportsCar {
     var horsePower: Int
@@ -297,6 +298,80 @@ class Mercedes: SportsCar {
 
 var c55 = Mercedes(horsePower: 400, name: "C55", isAMG: true)
 print(c55.fullName)
+
+protocol ParkingLot {
+    var totalSpaces: Int { get }
+    var numberOfCars: Int { get }
+    func amountEmptySpaces() -> Int
+}
+
+class HutchinsonLot {
+    var totalSpaces = 100
+    var amountOfCars = 50
+    func amountEmptySpaces() -> Int{
+        return totalSpaces - amountOfCars
+    }
+}
+
+let UCDParkingLot1 = HutchinsonLot()
+print(UCDParkingLot1.amountEmptySpaces())
+
+
+protocol Door {
+    mutating func lockOrUnlock()
+}
+
+enum Enter: Door{
+    case Open, Closed
+    mutating func lockOrUnlock() {
+        switch self{
+        case .Open:
+            self = .Closed
+        
+        case .Closed:
+            self = .Open
+        }
+        
+    }
+}
+var leaveHouse = Enter.Open
+
+protocol Robots {
+    init()
+}
+
+class Enemy {
+    init(){
+    }
+}
+
+class Ninja: Enemy, Robots {
+    // overide superclasses init, conform to protocol
+    required override init() {
+    }
+}
+
+// Type Aliases
+
+protocol WeightBout {
+    typealias WeightType
+    func calculateDivision() -> WeightType
+}
+
+class Featherweight: WeightBout {
+    typealias WeightType = Int
+    func calculateDivision() -> Int {
+        return 145
+    }
+}
+
+class LightHeavyweight: WeightBout {
+    typealias WeightType = String
+    func calculateDivision() -> String {
+        return "205"
+    }
+}
+
 
 
 
