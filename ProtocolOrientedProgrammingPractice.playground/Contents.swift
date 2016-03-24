@@ -8,6 +8,12 @@ protocol MythicalCreature {
     var name: String { get }
     var canFly: Bool { get }
 }
+extension BooleanType where Self: MythicalCreature{
+    var boolVal: Bool {
+        return self.canFly
+    }
+}
+
 
 protocol Flyable {
     var speed: Double { get }
@@ -54,15 +60,51 @@ enum Phoenix: MythicalCreature, Flyable {
 }
 
 /*                                         Protocol-Extensions                                    */
+
+// skip ever element in collection and array of unskipped
+// Extend CollectionType protocol
 extension CollectionType {
-    
+    func skip(skip: Int) -> [Generator.Element] {
+        guard skip != 0 else { return [] }
+        
+        var index = self.startIndex
+        var result: [Generator.Element] = []
+        var i = 0
+        repeat {
+            if i % skip == 0 {
+                result.append(self[index])
+            }
+            index = index.successor()
+            i = i + 1
+        }while (index != self.endIndex)
+        return result
+    }
 }
 
 
+// Map Reduce
+let totalNumberOfLetters = ["Cats", "Dogs"].map { $0.length }.reduce(0) { $0 + $1 }
+print(totalNumberOfLetters)
 
 
+let dragonDen: [MythicalCreature] =
+    [Phoenix.Western,
+     Phoenix.Eastern,
+     Phoenix.Universal,
+     Dragon(name: "Dragon", canFly: true, frequency: 2000.0, amplitude: 2000.0)]
+
+dragonDen.skip(2)
 
 
+// Generics
+func topSpeed<T: CollectionType where T.Generator.Element == Flyable>(c: T) -> Double {
+    return c.map{ $0.speed }.reduce(0) { max($0, $1) }
+}
+
+let cDragon = Dragon(name: "Dragon", canFly: true, frequency: 10000, amplitude: 2000)
+let flyingMyth: [Flyable] = [Phoenix.Western, cDragon]
+
+topSpeed(flyingMyth)
 
 
 /*                                          Notes from 2015 WWDC Video                              */
