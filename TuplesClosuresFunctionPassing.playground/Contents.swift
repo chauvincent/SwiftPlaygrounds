@@ -180,3 +180,27 @@ func greetings(name: String) -> String{
 let varGreetings: (String) -> String = greetings
 
 varGreetings("World")
+
+
+/*                                              More Fun with Closures                  */
+
+let starcraftNames = ["Zerg", "Protoss", "Terran"]
+starcraftNames.sort { (race1: String, race2: String) -> Bool in
+    return (race1 < race2 ? true : false)
+}
+
+typealias mathProb = (Int, Int) -> Int
+
+func calc( mathClosure:mathProb){
+    print("\(mathClosure(1,3))")
+}
+
+calc{ (int1, int2) -> Int in
+    return int1 - int2
+}
+
+calc{ (int1, int2) -> Int in
+    return 30
+}
+
+
