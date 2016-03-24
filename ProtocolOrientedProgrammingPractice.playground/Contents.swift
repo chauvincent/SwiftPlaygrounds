@@ -2,7 +2,7 @@
 
 import UIKit
 
-/*                                         Error Type Protocols                                    */
+
 
 
 /*                                         Protocol-Conforming Types                               */
