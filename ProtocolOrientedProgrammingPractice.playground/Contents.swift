@@ -2,12 +2,16 @@
 
 import UIKit
 
+/*                                         Error Type Protocols                                    */
+
 
 /*                                         Protocol-Conforming Types                               */
+
 protocol MythicalCreature {
     var name: String { get }
     var canFly: Bool { get }
 }
+
 extension BooleanType where Self: MythicalCreature{
     var boolVal: Bool {
         return self.canFly
@@ -96,7 +100,8 @@ let dragonDen: [MythicalCreature] =
 dragonDen.skip(2)
 
 
-// Generics
+/*                                         Generics                                                 */
+
 func topSpeed<T: CollectionType where T.Generator.Element == Flyable>(c: T) -> Double {
     return c.map{ $0.speed }.reduce(0) { max($0, $1) }
 }
@@ -105,6 +110,20 @@ let cDragon = Dragon(name: "Dragon", canFly: true, frequency: 10000, amplitude: 
 let flyingMyth: [Flyable] = [Phoenix.Western, cDragon]
 
 topSpeed(flyingMyth)
+
+struct Cat{}
+struct Dogs{}
+
+struct AnimalKeeper<T>{}
+
+var aCatKeeper = AnimalKeeper<Cat>()
+var aDogKeeper = AnimalKeeper<Dogs>()
+
+func trade<T, U>(x: T, y: U) -> (U,T){
+    return (y,x)
+}
+trade("Traded", y: 3)
+
 
 
 /*                                          Notes from 2015 WWDC Video                              */
