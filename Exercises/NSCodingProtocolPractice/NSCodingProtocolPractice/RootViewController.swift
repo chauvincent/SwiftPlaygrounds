@@ -10,6 +10,7 @@ import UIKit
 
 class RootViewController: UIViewController{
 
+    @IBOutlet weak var reminderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
