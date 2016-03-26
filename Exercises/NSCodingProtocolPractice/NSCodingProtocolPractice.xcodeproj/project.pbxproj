@@ -13,6 +13,7 @@
 		75169E8C1CA45CD900D2BFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75169E8B1CA45CD900D2BFA1 /* Assets.xcassets */; };
 		75169E8F1CA45CD900D2BFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75169E8D1CA45CD900D2BFA1 /* LaunchScreen.storyboard */; };
 		75169E9E1CA47F6A00D2BFA1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75169E9D1CA47F6A00D2BFA1 /* RootViewController.swift */; };
+		75169EA21CA6FF4A00D2BFA1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75169EA11CA6FF4A00D2BFA1 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		75169E8E1CA45CD900D2BFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75169E901CA45CD900D2BFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75169E9D1CA47F6A00D2BFA1 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		75169EA11CA6FF4A00D2BFA1 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		75169E961CA475DF00D2BFA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				75169EA11CA6FF4A00D2BFA1 /* Task.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75169EA21CA6FF4A00D2BFA1 /* Task.swift in Sources */,
 				75169E871CA45CD900D2BFA1 /* ViewController.swift in Sources */,
 				75169E851CA45CD900D2BFA1 /* AppDelegate.swift in Sources */,
 				75169E9E1CA47F6A00D2BFA1 /* RootViewController.swift in Sources */,

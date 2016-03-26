@@ -15,7 +15,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reminderTextField.delegate = self
     }
 
@@ -24,12 +23,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-// MARK: IBActions
+    // MARK: IBActions
     @IBAction func didPressButton(sender: AnyObject) {
         reminderTextField.text = "Default"
     }
     
-// MARK: UITextFieldDelegate
+    // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
