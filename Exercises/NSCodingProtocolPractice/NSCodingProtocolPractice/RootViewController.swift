@@ -8,13 +8,16 @@
 
 import UIKit
 
-class RootViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
+class RootViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate{
+    
+    var items = [String]()
+    
     @IBOutlet weak var reminderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         reminderTableView.delegate = self
         reminderTableView.dataSource = self
+     
         // Do any additional setup after loading the view.
     }
 
@@ -25,24 +28,30 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // MARK: UITableViewDatasource and Delegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return items.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        cell.textLabel?.text = items[indexPath.row]
+
         return cell
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func controller(controller: ViewController, didAddItem: String) {
+        items.append(didAddItem)
+        print("did call")
+        self.reminderTableView.reloadData()
     }
-    */
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.destinationViewController.isKindOfClass(ViewController) {
+            let nextVC = segue.destinationViewController as? ViewController
+            if let viewController = nextVC{
+                viewController.delegate = self
+                
+            }
+        }
+    }
 }

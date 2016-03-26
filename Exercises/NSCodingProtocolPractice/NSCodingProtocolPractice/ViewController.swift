@@ -8,10 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+protocol  ViewControllerDelegate {
+    func controller(controller: ViewController, didAddItem:String)
+}
 
+class ViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var reminderTextField: UITextField!
     @IBOutlet weak var rememberLaterLabel: UILabel!
+    
+    var delegate: ViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     // MARK: IBActions
     @IBAction func didPressButton(sender: AnyObject) {
@@ -35,7 +42,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        rememberLaterLabel.text = textField.text 
+        rememberLaterLabel.text = textField.text
+        
+        if let delegate = self.delegate{
+            delegate.controller(self, didAddItem: textField.text as String!)
+        }
     }
 
 }

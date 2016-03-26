@@ -14,5 +14,4 @@ class Task {
     init(descript: String){
         self.descript = descript
     }
-    
 }
