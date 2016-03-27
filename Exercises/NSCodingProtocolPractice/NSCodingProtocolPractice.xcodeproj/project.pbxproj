@@ -14,6 +14,8 @@
 		75169E8F1CA45CD900D2BFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75169E8D1CA45CD900D2BFA1 /* LaunchScreen.storyboard */; };
 		75169E9E1CA47F6A00D2BFA1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75169E9D1CA47F6A00D2BFA1 /* RootViewController.swift */; };
 		75169EA21CA6FF4A00D2BFA1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75169EA11CA6FF4A00D2BFA1 /* Task.swift */; };
+		75278B3E1CA8A8F70064373C /* ItemStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75278B3D1CA8A8F70064373C /* ItemStoreDelegate.swift */; };
+		75278B401CA8A9520064373C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75278B3F1CA8A9520064373C /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		75169E901CA45CD900D2BFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75169E9D1CA47F6A00D2BFA1 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		75169EA11CA6FF4A00D2BFA1 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		75278B3D1CA8A8F70064373C /* ItemStoreDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoreDelegate.swift; sourceTree = "<group>"; };
+		75278B3F1CA8A9520064373C /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				75169EA11CA6FF4A00D2BFA1 /* Task.swift */,
+				75278B3F1CA8A9520064373C /* Store.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 		75169E991CA4765200D2BFA1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				75278B3D1CA8A8F70064373C /* ItemStoreDelegate.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -184,7 +190,9 @@
 				75169EA21CA6FF4A00D2BFA1 /* Task.swift in Sources */,
 				75169E871CA45CD900D2BFA1 /* ViewController.swift in Sources */,
 				75169E851CA45CD900D2BFA1 /* AppDelegate.swift in Sources */,
+				75278B401CA8A9520064373C /* Store.swift in Sources */,
 				75169E9E1CA47F6A00D2BFA1 /* RootViewController.swift in Sources */,
+				75278B3E1CA8A8F70064373C /* ItemStoreDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

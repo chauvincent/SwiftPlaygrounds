@@ -10,7 +10,6 @@ import UIKit
 
 class Task {
     var descript: String
-    
     init(descript: String){
         self.descript = descript
     }

@@ -17,13 +17,10 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         reminderTableView.delegate = self
         reminderTableView.dataSource = self
-     
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: UITableViewDatasource and Delegate
@@ -33,7 +30,6 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         cell.textLabel?.text = items[indexPath.row]
-
         return cell
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,7 +37,6 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func controller(controller: ViewController, didAddItem: String) {
         items.append(didAddItem)
-        print("did call")
         self.reminderTableView.reloadData()
     }
     
@@ -50,7 +45,6 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let nextVC = segue.destinationViewController as? ViewController
             if let viewController = nextVC{
                 viewController.delegate = self
-                
             }
         }
     }
