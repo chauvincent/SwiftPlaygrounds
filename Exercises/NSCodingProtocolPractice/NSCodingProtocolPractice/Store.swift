@@ -12,12 +12,12 @@ class Store: ItemStoreDelegate {
     static let sharedInstance = Store()
     
     typealias Object = Task
-    var allTask = [Object]()
+    var allTasks = [Object]()
     
     private init(){
         if let dataObjects = NSData(contentsOfURL: NSURL.archiveURL()),
             storedObjects = NSKeyedUnarchiver.unarchiveObjectWithData(dataObjects) as? [Task] {
-            self.allTask = storedObjects
+            self.allTasks = storedObjects
         }
     }
 }

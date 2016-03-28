@@ -18,28 +18,15 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
         reminderTableView.delegate = self
         reminderTableView.dataSource = self
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reminderTableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    // MARK: UITableViewDatasource and Delegate
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        cell.textLabel?.text = items[indexPath.row]
-        return cell
-    }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    func controller(controller: ViewController, didAddItem: String) {
-        items.append(didAddItem)
-        self.reminderTableView.reloadData()
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.destinationViewController.isKindOfClass(ViewController) {
             let nextVC = segue.destinationViewController as? ViewController
@@ -48,4 +35,27 @@ class RootViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
+    // MARK: UITableViewDatasource and Delegate
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Store.sharedInstance.count()
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let item = Store.sharedInstance.objectForRowAtIndexPath(indexPath)
+        cell.textLabel?.text = item.descript
+        return cell
+    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // MARK: ViewController Delegate
+    func controller(controller: ViewController, didAddItem: String) {
+        Store.sharedInstance.add(Task(descript: didAddItem))
+        
+        //items.append(didAddItem)
+        ///self.reminderTableView.reloadData()
+    }
+    
+
 }

@@ -6,11 +6,22 @@
 //  Copyright © 2016 Vincent Chau. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Task {
+class Task : BaseObject, NSCoding{
     var descript: String
     init(descript: String){
         self.descript = descript
+    }
+    
+    // MARK: NSCoding
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encodeObject(self.descript, forKey:  "itemDescript")
+    }
+    required convenience init?(coder aDecoder: NSCoder){
+        guard let itemDescript = aDecoder.decodeObjectForKey("itemDescript") as? String else {
+            fatalError("Error in \(#function)")
+        }
+        self.init(descript: itemDescript)
     }
 }

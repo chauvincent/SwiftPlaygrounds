@@ -17,6 +17,7 @@
 		75278B3E1CA8A8F70064373C /* ItemStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75278B3D1CA8A8F70064373C /* ItemStoreDelegate.swift */; };
 		75278B401CA8A9520064373C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75278B3F1CA8A9520064373C /* Store.swift */; };
 		75278B421CA8AA180064373C /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75278B411CA8AA180064373C /* Additions.swift */; };
+		75278B441CA8E5970064373C /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75278B431CA8E5970064373C /* BaseObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		75278B3D1CA8A8F70064373C /* ItemStoreDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoreDelegate.swift; sourceTree = "<group>"; };
 		75278B3F1CA8A9520064373C /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		75278B411CA8AA180064373C /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		75278B431CA8E5970064373C /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				75169EA11CA6FF4A00D2BFA1 /* Task.swift */,
 				75278B3F1CA8A9520064373C /* Store.swift */,
+				75278B431CA8E5970064373C /* BaseObject.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				75169E871CA45CD900D2BFA1 /* ViewController.swift in Sources */,
 				75169E851CA45CD900D2BFA1 /* AppDelegate.swift in Sources */,
 				75278B401CA8A9520064373C /* Store.swift in Sources */,
+				75278B441CA8E5970064373C /* BaseObject.swift in Sources */,
 				75169E9E1CA47F6A00D2BFA1 /* RootViewController.swift in Sources */,
 				75278B3E1CA8A8F70064373C /* ItemStoreDelegate.swift in Sources */,
 			);
