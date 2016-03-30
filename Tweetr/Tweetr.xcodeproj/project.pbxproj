@@ -35,6 +35,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75A671041CAC4FCE00FB24A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75F2E8551CAB63120011CE6E /* Main.storyboard */,
+				75F2E85A1CAB63120011CE6E /* LaunchScreen.storyboard */,
+				75F2E8581CAB63120011CE6E /* Assets.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		75A671051CAC4FD200FB24A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75F2E8531CAB63120011CE6E /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		75A671061CAC4FD400FB24A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		75A671071CAC4FE300FB24A1 /* App Global */ = {
+			isa = PBXGroup;
+			children = (
+				75F2E8511CAB63120011CE6E /* AppDelegate.swift */,
+				75F2E85D1CAB63120011CE6E /* Info.plist */,
+			);
+			name = "App Global";
+			sourceTree = "<group>";
+		};
+		75A671081CAC500F00FB24A1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		75F2E8451CAB63120011CE6E = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +95,11 @@
 		75F2E8501CAB63120011CE6E /* Tweetr */ = {
 			isa = PBXGroup;
 			children = (
-				75F2E8511CAB63120011CE6E /* AppDelegate.swift */,
-				75F2E8531CAB63120011CE6E /* ViewController.swift */,
-				75F2E8551CAB63120011CE6E /* Main.storyboard */,
-				75F2E8581CAB63120011CE6E /* Assets.xcassets */,
-				75F2E85A1CAB63120011CE6E /* LaunchScreen.storyboard */,
-				75F2E85D1CAB63120011CE6E /* Info.plist */,
+				75A671071CAC4FE300FB24A1 /* App Global */,
+				75A671061CAC4FD400FB24A1 /* Model */,
+				75A671051CAC4FD200FB24A1 /* Controller */,
+				75A671081CAC500F00FB24A1 /* Utility */,
+				75A671041CAC4FCE00FB24A1 /* View */,
 			);
 			path = Tweetr;
 			sourceTree = "<group>";
@@ -288,6 +328,7 @@
 				75F2E8621CAB63120011CE6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
