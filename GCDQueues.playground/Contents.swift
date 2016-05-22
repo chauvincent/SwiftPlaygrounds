@@ -55,7 +55,7 @@ typealias DoneBlock = () -> ()
 typealias JobBlock = (DoneBlock) -> ()
 
 // Create serial queue, enqueue jobs onto the block.
-// JobBlock gives DoneBlock to call when job is done, which will signal the semaphore and allow the serial queue to continue
+// JobBlock gives DoneBlock to call when the job is done, which will signal the semaphore and allow the serial queue to continue
 class AsyncSerial {
     private let serialQ = dispatch_queue_create("com.chau.serial.queue2", DISPATCH_QUEUE_SERIAL)
     
@@ -70,6 +70,27 @@ class AsyncSerial {
     }
 }
 
+/*                                              Limit Concurrenct Blocks                                        */
+
+func processJobs() {
+    print("working")
+}
+class LimitedProcess {
+    private let concurrentQ = dispatch_queue_create("com.chau.concurrent.queue", DISPATCH_QUEUE_CONCURRENT)
+    private let semaphore: dispatch_semaphore_t
+    
+    init(limit: Int){
+        semaphore = dispatch_semaphore_create(limit) // limit is number of resource avaliable
+    }
+    func enequeueJob(job: () -> ()){
+        dispatch_async(concurrentQ) {
+            dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER) // decrements count by 1 every time you wait
+            processJobs()
+            dispatch_semaphore_signal(self.semaphore) // increments count variable by 1 (resource has been freed)
+        }
+    }
+    
+}
 
 
 
