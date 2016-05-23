@@ -72,6 +72,7 @@ class AsyncSerial {
 
 /*                                              Limit Concurrenct Blocks                                        */
 
+// Similar to maxConcurrentOperationCount on NSOperationQueue
 func processJobs() {
     print("working")
 }
@@ -82,6 +83,7 @@ class LimitedProcess {
     init(limit: Int){
         semaphore = dispatch_semaphore_create(limit) // limit is number of resource avaliable
     }
+    // if hit semaphore limit, will use a new thread
     func enequeueJob(job: () -> ()){
         dispatch_async(concurrentQ) {
             dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER) // decrements count by 1 every time you wait
@@ -91,6 +93,24 @@ class LimitedProcess {
     }
     
 }
+
+
+/*                                              Groups                                                          */
+
+// If many blocks of work to execute, want to know when its all complete
+
+/*
+ 
+dispatch_group_t group = dispatch_group_create()
+for item in taskArray {
+    dispatch_group_async(group, backgroundQ, {
+        expensiveCall()
+    })
+}
+dispatch_group_notify(group, dispatch_get_main_queue(), {
+    // everything in task array is done, now do something with it
+}
+*/
 
 
 
