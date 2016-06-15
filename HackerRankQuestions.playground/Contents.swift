@@ -82,14 +82,47 @@ for i in 1...n{
     Ex: 
     n = 1   ->   -1 (no decent number with 1 digit)
     n = 3   ->   555 since 5 appears 3 times in this number, count of 5's is evenly divisible by 3 (property 3)
-    n = 5   ->   333333 since 3 appears 5 times in this number, count of 3's is even divisible by 5
+    n = 5   ->   333333 since 3 appears 5 times in this number, count of 3's is even divisible by 5 (property 2)
     n = 11  ->   555555333333 and all the permutations of these are valid, but this is the largest
+    
 */
 
+var numberOfTest = 4
 
+func getDecentNumber(n: Int) -> [String]{
+    var temp = n
+    //var temp2 = Int(readLine()!)
+    var decentNumbers: [String] = []
+    
+    if n == 3 {
+        return ["5","5","5"]
+    }
+    if n == 5 {
+        return ["3","3","3","3","3"]
+    }
+    if n == 6{
+        return ["5","5","5","5","5","5","5","5","5"]
+    }
+    while (temp % 3 != 0) {
+       temp = temp - 5
+        if temp < 0{
+            return ["-1"]
+        }else{
+            for _ in 1...temp{
+                decentNumbers.append("5")
+            }
+            for _ in 1...(n - temp){
+                decentNumbers.append("3")
+            }
+        }
+    }
+    return decentNumbers
+}
+let decentString = getDecentNumber(15).reduce("") { (string, result) -> String in
+    return "\(string)\(result)"
+}
 
-
-
+print(decentString)
 
 
 
