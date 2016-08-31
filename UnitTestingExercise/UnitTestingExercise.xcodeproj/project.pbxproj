@@ -14,6 +14,9 @@
 		7535AD681D76820400D3D75A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7535AD671D76820400D3D75A /* Assets.xcassets */; };
 		7535AD6B1D76820400D3D75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7535AD691D76820400D3D75A /* LaunchScreen.storyboard */; };
 		7535AD761D76820400D3D75A /* UnitTestingExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7535AD751D76820400D3D75A /* UnitTestingExerciseTests.swift */; };
+		7535AD811D7682B300D3D75A /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7535AD801D7682B300D3D75A /* Math.swift */; };
+		7535AD831D7683A100D3D75A /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7535AD821D7683A100D3D75A /* Tests.swift */; };
+		7535AD841D76886300D3D75A /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7535AD801D7682B300D3D75A /* Math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,8 @@
 		7535AD711D76820400D3D75A /* UnitTestingExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestingExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7535AD751D76820400D3D75A /* UnitTestingExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestingExerciseTests.swift; sourceTree = "<group>"; };
 		7535AD771D76820400D3D75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7535AD801D7682B300D3D75A /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		7535AD821D7683A100D3D75A /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +86,13 @@
 			children = (
 				7535AD5D1D76820400D3D75A /* AppDelegate.swift */,
 				7535AD5F1D76820400D3D75A /* ViewController.swift */,
+				7535AD801D7682B300D3D75A /* Math.swift */,
 				7535AD611D76820400D3D75A /* Main.storyboard */,
 				7535AD671D76820400D3D75A /* Assets.xcassets */,
 				7535AD691D76820400D3D75A /* LaunchScreen.storyboard */,
 				7535AD6C1D76820400D3D75A /* Info.plist */,
 				7535AD641D76820400D3D75A /* UnitTestingExercise.xcdatamodeld */,
+				7535AD821D7683A100D3D75A /* Tests.swift */,
 			);
 			path = UnitTestingExercise;
 			sourceTree = "<group>";
@@ -201,8 +208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7535AD601D76820400D3D75A /* ViewController.swift in Sources */,
+				7535AD831D7683A100D3D75A /* Tests.swift in Sources */,
 				7535AD5E1D76820400D3D75A /* AppDelegate.swift in Sources */,
 				7535AD661D76820400D3D75A /* UnitTestingExercise.xcdatamodeld in Sources */,
+				7535AD811D7682B300D3D75A /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7535AD761D76820400D3D75A /* UnitTestingExerciseTests.swift in Sources */,
+				7535AD841D76886300D3D75A /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
