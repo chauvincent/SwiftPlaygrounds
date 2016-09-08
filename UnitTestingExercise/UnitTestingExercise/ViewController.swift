@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print(math.sum(10, b: 10))
+        print(math!.sum(10, b: 10))
         getScore()
     }
 
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func getScore() {
-        print(math.sum(5, b: 5))
+        print(math!.sum(5, b: 5))
     }
 
 }

@@ -10,11 +10,10 @@ import Foundation
 
 class Tests {
     let math = Math()
-    
     init(){
         testSum()
     }
-    
+
     func testSum() {
         if math.sum(5, b: 5) != 10 {
             print("ERROR: sum is wrong")

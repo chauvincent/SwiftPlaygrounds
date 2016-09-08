@@ -5,11 +5,13 @@
 //  Created by Vincent Chau on 8/30/16.
 //  Copyright © 2016 Vincent Chau. All rights reserved.
 //
-
 import XCTest
 @testable import UnitTestingExercise
 
 class UnitTestingExerciseTests: XCTestCase {
+    // Common Practice:
+    // Break the test first then fix it
+
     
     override func setUp() {
         super.setUp()
@@ -22,8 +24,8 @@ class UnitTestingExerciseTests: XCTestCase {
     }
     func testAddition() {
         XCTAssertNotNil(Math.instance)
+        
     }
-    
     
     func testExample() {
         // This is an example of a functional test case.
