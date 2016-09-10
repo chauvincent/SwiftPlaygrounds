@@ -105,4 +105,74 @@ isUnique("AB!CD!")
 isPermutation("dogcat", str2: "catdsg")
 */
 
+// 1.3 URLify:  input: Mr John Smith -> Mr%20John%20Smith
+/*
+    func URLify(inputStr: String) -> String
+    {
+        let strArr = inputStr.componentsSeparatedByString(" ")
+        let url = strArr.reduce("", combine: {$0 + "%20" + $1})
+        return url
+    }
+    URLify("Mr John Smith")
+*/
+
+// 1.4 Palindrome permutation : Input: Tact Coa -> True, since permutations : taco cat, atco cta, etc..
+/*
+    Ans: same thing as 1.2 pretty much
+*/
+
+// 1.5 One Away:  Input : pale, pal -> True, pale, bale -> True, pale, bake -> False
+/*
+    Brain storming: 2 main cases
+    1. same length and one || more off
+    2. different length by one || more
+*/
+
+func checkDifferentByOne(str1: String, str2: String) -> Bool
+{
+    var diffCount = 0
+    var count = 0;
+    let str2 = Array(str2.characters)
+    for letter in str1.characters {
+        if letter != str2[count] {
+            diffCount += 1
+            print("letter is \(letter)")
+            print("str2 is \(str2[count])")
+            if diffCount > 1 {
+                return false;
+            }
+        }
+        count += 1
+    }
+    return true;
+}
+
+func isOneAway(str1: String, str2: String) -> Bool
+{
+    let diff = Int(str1.characters.count - str2.characters.count)
+
+    if (diff == 0)
+    {
+        return checkDifferentByOne(str1, str2: str2)
+    }
+    else if (diff == 1 || diff == -1)
+    {
+        let isFirstShorter = (str1.characters.count < str2.characters.count) ? true : false
+        print(isFirstShorter)
+        if (isFirstShorter)
+        {
+            let tempStr = str1 + "X"
+            return checkDifferentByOne(tempStr, str2: str2)
+        }
+        else
+        {
+            let tempStr = str2 + "X"
+            return checkDifferentByOne(str1, str2: tempStr)
+        }
+    }
+    return false; // Different length more than 1, so not one away
+}
+
+isOneAway("abcd", str2: "dbcd")
+
 
