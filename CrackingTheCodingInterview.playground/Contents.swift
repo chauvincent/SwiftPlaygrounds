@@ -128,6 +128,7 @@ isPermutation("dogcat", str2: "catdsg")
     2. different length by one || more
 */
 
+/*
 func checkDifferentByOne(str1: String, str2: String) -> Bool
 {
     var diffCount = 0
@@ -170,9 +171,22 @@ func isOneAway(str1: String, str2: String) -> Bool
             return checkDifferentByOne(str1, str2: tempStr)
         }
     }
-    return false; // Different length more than 1, so not one away
+    return false; // O(S)
 }
 
 isOneAway("abcd", str2: "dbcd")
+*/
 
+/* 
+    1.6 String Compression, compress repeated characters: aabcccccaaa -> a2b1c5a3
+*/
+extension String {
+    public func compress() -> String
+    {
+        var strArr = Array(self.characters)
+        
+        return "asdfdsf"
+    }
+}
 
+"aabcccccaaa".compress
