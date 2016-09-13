@@ -227,14 +227,46 @@ compressStr("aaabbccde")
 /*
     1.7 Rotate Matrix: 90 degrees, given NxN matrix
 */
-func rotateMatrix(arr: [[Int]]) -> [[Int]]
+func rotateMatrix(M: [[Int]]) -> [[Int]]
 {
+    var M = M
+    let N = M.count
     
-
+    // Check if NxN
+    if (M.count != M[0].count)
+    {
+        return M
+    }
+    var pivot = 0
+    
+    while pivot < N / 2
+    {
+        let low = pivot
+        let high = N - pivot - 1
+        var i = low
+    
+        while i < high
+        {
+            let offset = i - low
+            
+            M[low][i] = M[high-offset][low]
+            M[high-offset][low] = M[high][high-offset]
+            
+            M[high][high-offset] = M[i][high]
+            M[i][high] = M[low][i]
+            
+            i += 1
+        }
+        pivot += 1
+    }
+    
     return M
 }
 
-let M = [[Int]]()
+var M = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+
 rotateMatrix(M)
 
 
