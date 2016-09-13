@@ -180,13 +180,61 @@ isOneAway("abcd", str2: "dbcd")
 /* 
     1.6 String Compression, compress repeated characters: aabcccccaaa -> a2b1c5a3
 */
-extension String {
-    public func compress() -> String
+/*
+ func compressStr(str: String) -> String?
+ {
+    var done = false
+    var solution = ""
+    var index1 = 0
+    var index2 = 1
+    let strArr = Array(str.characters)
+    
+    var count = 1;
+    
+    while (!done)
     {
-        var strArr = Array(self.characters)
+        if index2 == strArr.count
+        {
+            done = true;
+            break;
+        }
+        if strArr[index1] == strArr[index2]
+        {
+            if count == 1
+            {
+                solution += String(strArr[index1])
+            }
+            count += 1
+            index1 += 1
+            index2 += 1
+        }
+        else
+        {
+            solution += String(count)
+            count = 1
+            index1 += 1
+            index2 += 1
+        }
         
-        return "asdfdsf"
     }
+    
+    return solution
+ }
+
+compressStr("aaabbccde")
+*/
+
+/*
+    1.7 Rotate Matrix: 90 degrees, given NxN matrix
+*/
+func rotateMatrix(arr: [[Int]]) -> [[Int]]
+{
+    
+
+    return M
 }
 
-"aabcccccaaa".compress
+let M = [[Int]]()
+rotateMatrix(M)
+
+
